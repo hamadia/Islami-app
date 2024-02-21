@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islam/ui/home/hadith_tab/hadith_tab.dart';
 import 'package:islam/ui/home/quran_tab/quran_tab.dart';
 import 'package:islam/ui/home/radio_tab/radio_tab.dart';
+import 'package:islam/ui/home/setting_tab/setting_tab.dart';
 import 'package:islam/ui/home/tasbeh_tab/tasbeh_tab.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,7 +14,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndexTab = 0;
-  List<Widget> tabs = [QuranTab(), HadithTab(), TasbehTab(), RadioTab()];
+  List<Widget> tabs = [
+    QuranTab(),
+    HadithTab(),
+    TasbehTab(),
+    RadioTab(),
+    SettingsTab(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +63,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     backgroundColor: Color(0xFFB7935F),
                     icon: ImageIcon(AssetImage('assets/images/icon_radio.png')),
                     label: 'Radio'),
+                BottomNavigationBarItem(
+                    backgroundColor: Color(0xFFB7935F),
+                    icon: Icon(Icons.settings),
+                    label: 'Settings'),
               ],
             ),
             body: tabs[selectedIndexTab],
