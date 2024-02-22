@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islam/ui/home/setting_tab/language_bottom_sheet.dart';
 import 'package:islam/ui/home/setting_tab/theme_bottom_sheet.dart';
 
@@ -14,10 +15,10 @@ class _SettingsTabState extends State<SettingsTab> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(8),
             child: Text(
-              'Theme',
+              AppLocalizations.of(context)!.theme,
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
@@ -41,10 +42,10 @@ class _SettingsTabState extends State<SettingsTab> {
               ),
             ),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(8),
             child: Text(
-              'Language',
+              AppLocalizations.of(context)!.language,
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
