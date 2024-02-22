@@ -12,40 +12,39 @@ class _HadithTabState extends State<HadithTab> {
   Widget build(BuildContext context) {
     if (ahadith.isEmpty) loadHadithFile();
     return ahadith.isEmpty
-        ? Center(
+        ? const Center(
             child: CircularProgressIndicator(),
           )
-        : Container(
-            child: Column(
-              children: [
-                Image.asset('assets/images/hadeth_logo.png'),
-                Container(
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.all(12),
-                  margin: const EdgeInsets.symmetric(horizontal: 45),
-                  decoration: const BoxDecoration(
-                      border: Border.symmetric(
-                    horizontal: BorderSide(color: Color(0xFFB7935F), width: 2),
-                  )),
-                  child: const Text(
-                    'Ahadith',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                  ),
+        : Column(
+            children: [
+              Image.asset('assets/images/hadeth_logo.png'),
+              Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(12),
+                margin: const EdgeInsets.symmetric(horizontal: 45),
+                decoration: BoxDecoration(
+                    border: Border.symmetric(
+                  horizontal: BorderSide(
+                      color: Theme.of(context).dividerColor, width: 2),
+                )),
+                child: Text(
+                  'Ahadith',
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
-                Expanded(
-                  child: ListView.separated(
-                      itemBuilder: (context, index) =>
-                          HadithTitleWidget(hadith: ahadith[index]),
-                      separatorBuilder: (context, index) => Container(
-                            margin: EdgeInsets.symmetric(horizontal: 45),
-                            color: const Color(0xFFB7935F),
-                            width: double.infinity,
-                            height: 2,
-                          ),
-                      itemCount: ahadith.length),
-                ),
-              ],
-            ),
+              ),
+              Expanded(
+                child: ListView.separated(
+                    itemBuilder: (context, index) =>
+                        HadithTitleWidget(hadith: ahadith[index]),
+                    separatorBuilder: (context, index) => Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 45),
+                          color: Theme.of(context).dividerColor,
+                          width: double.infinity,
+                          height: 2,
+                        ),
+                    itemCount: ahadith.length),
+              ),
+            ],
           );
   }
 
