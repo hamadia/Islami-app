@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islam/ui/home/hadith_tab/hadith_tab.dart';
+import 'package:islam/ui/styles/my_theme_data.dart';
 
 class HadithDetailsScreen extends StatelessWidget {
   static const String routeName = 'HadithDetails';
@@ -8,11 +9,13 @@ class HadithDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as Hadith;
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
             fit: BoxFit.fill,
             image: AssetImage(
-              'assets/images/main_background.png',
+              MyThemeData.isDarkSelected
+                  ? 'assets/images/dark_background.png'
+                  : 'assets/images/main_background.png',
             )),
       ),
       child: Scaffold(
@@ -21,7 +24,7 @@ class HadithDetailsScreen extends StatelessWidget {
           title: const Text('Islami'),
         ),
         body: Container(
-            padding: EdgeInsets.all(22),
+            padding: const EdgeInsets.all(22),
             child: SingleChildScrollView(
               child: Card(
                 shape: RoundedRectangleBorder(
@@ -30,20 +33,18 @@ class HadithDetailsScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(8),
                       child: Text(
                         args.title,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.all(18),
+                      padding: const EdgeInsets.all(18),
                       child: Text(
                         args.content,
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     )
                   ],

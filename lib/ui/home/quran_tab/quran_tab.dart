@@ -130,10 +130,11 @@ class QuranTab extends StatelessWidget {
             flex: 3,
             child: ListView.separated(
               separatorBuilder: (context, index) => Container(
-                  height: 2,
-                  width: double.infinity,
-                  margin: EdgeInsets.symmetric(horizontal: 40),
-                  color: const Color(0xFFB7935F)),
+                height: 2,
+                width: double.infinity,
+                margin: const EdgeInsets.symmetric(horizontal: 40),
+                color: Theme.of(context).dividerColor,
+              ),
               itemBuilder: (context, index) => SuraName(
                 suraArgs: SuraArgs(title: suraNames[index], index: index),
               ),

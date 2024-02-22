@@ -10,7 +10,7 @@ class SettingsTab extends StatefulWidget {
 class _SettingsTabState extends State<SettingsTab> {
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(18),
+      padding: const EdgeInsets.all(18),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -26,16 +26,16 @@ class _SettingsTabState extends State<SettingsTab> {
               showThemeBottomSheet();
             },
             child: Container(
-              padding: EdgeInsets.all(18),
+              padding: const EdgeInsets.all(18),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(22),
                 //color: Color(0xFF),
                 border: Border.all(
-                  color: Color(0xFFB7935F),
+                  color: const Color(0xFFB7935F),
                   width: 3,
                 ),
               ),
-              child: Text(
+              child: const Text(
                 'light',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
@@ -58,11 +58,11 @@ class _SettingsTabState extends State<SettingsTab> {
                 borderRadius: BorderRadius.circular(22),
                 //color: Color(0xFF),
                 border: Border.all(
-                  color: Color(0xFFB7935F),
+                  color: const Color(0xFFB7935F),
                   width: 3,
                 ),
               ),
-              child: Text(
+              child: const Text(
                 'English',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),

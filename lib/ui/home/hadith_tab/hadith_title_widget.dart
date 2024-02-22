@@ -15,11 +15,11 @@ class HadithTitleWidget extends StatelessWidget {
             arguments: Hadith(title: hadith.title, content: hadith.content));
       },
       child: Container(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         alignment: Alignment.center,
         child: Text(
           hadith.title,
-          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          style: Theme.of(context).textTheme.titleMedium,
         ),
       ),
     );
