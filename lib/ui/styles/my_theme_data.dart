@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class MyThemeData {
-  static Color lightPrimaryColor = Color(0xFFB7935F);
-  static Color darkPrimaryColor = Color(0xFF141A2E);
+  static Color lightPrimaryColor = const Color(0xFFB7935F);
+  static Color darkPrimaryColor = const Color(0xFF141A2E);
   static bool isDarkSelected = true;
   static ThemeData lightTheme = ThemeData(
     dividerColor: lightPrimaryColor,
     primaryColor: lightPrimaryColor,
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       headlineMedium: TextStyle(
           fontSize: 25, fontWeight: FontWeight.w600, color: Colors.black),
       titleMedium: TextStyle(
@@ -33,7 +33,7 @@ class MyThemeData {
     ),
   );
   static ThemeData darkTheme = ThemeData(
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       headlineMedium: TextStyle(
           fontSize: 25, fontWeight: FontWeight.w600, color: Colors.white),
       titleMedium: TextStyle(
