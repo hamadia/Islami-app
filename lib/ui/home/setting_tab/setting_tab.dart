@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islam/provider/provider_settings.dart';
 import 'package:islam/ui/home/setting_tab/language_bottom_sheet.dart';
 import 'package:islam/ui/home/setting_tab/theme_bottom_sheet.dart';
+import 'package:provider/provider.dart';
 
 class SettingsTab extends StatefulWidget {
   @override
@@ -9,17 +11,19 @@ class SettingsTab extends StatefulWidget {
 }
 
 class _SettingsTabState extends State<SettingsTab> {
+  @override
   Widget build(BuildContext context) {
+    var settingsProvider = Provider.of<SettingProvider>(context);
     return Container(
       padding: const EdgeInsets.all(18),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Padding(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             child: Text(
               AppLocalizations.of(context)!.theme,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
           InkWell(
@@ -36,17 +40,20 @@ class _SettingsTabState extends State<SettingsTab> {
                   width: 3,
                 ),
               ),
-              child: const Text(
-                'light',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              child: Text(
+                settingsProvider.currentTheme == ThemeMode.light
+                    ? AppLocalizations.of(context)!.light
+                    : AppLocalizations.of(context)!.dark,
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             child: Text(
               AppLocalizations.of(context)!.language,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
           InkWell(
@@ -54,7 +61,7 @@ class _SettingsTabState extends State<SettingsTab> {
               showLanguageBottomSheet();
             },
             child: Container(
-              padding: EdgeInsets.all(18),
+              padding: const EdgeInsets.all(18),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(22),
                 //color: Color(0xFF),
@@ -63,9 +70,10 @@ class _SettingsTabState extends State<SettingsTab> {
                   width: 3,
                 ),
               ),
-              child: const Text(
-                'English',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              child: Text(
+                settingsProvider.currentLocal == 'ar' ? 'العربية' : 'English',
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
           )
